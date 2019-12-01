@@ -42,7 +42,7 @@ Schedule ScheduleReader::ReadLine() {
     _fileStream >> buffer;
     schedule.arrivalTime = Time::fromString("hh:mm", buffer);
 
-    if (schedule.arrivalTime < schedule.departureTime)
+    if (schedule.departureTime > schedule.arrivalTime)
         schedule.arrivalTime.extend();
 
     return schedule;

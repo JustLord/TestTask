@@ -17,7 +17,7 @@ bool Time::isSecond(char format) {
 }
 
 Time Time::fromString(const std::string &format, const std::string &str) {
-    auto getDigit = [](char c){ return (int) c - '0'; };
+    auto getDigit = [](char c) { return (int) c - '0'; };
 
     int hours = 0;
     int minutes = 0;
@@ -28,17 +28,17 @@ Time Time::fromString(const std::string &format, const std::string &str) {
 
     while (formatIterator != format.end()) {
         if (isHour(*formatIterator)) {
-            hours = *iterator++;
+            hours = getDigit(*iterator++);
             formatIterator++;
 
             while (isHour(*formatIterator)) {
-                hours =  hours * 10 + getDigit(*iterator++);
+                hours = hours * 10 + getDigit(*iterator++);
                 formatIterator++;
             }
 
             continue;
         } else if (isMinute(*formatIterator)) {
-            minutes = *iterator++;
+            minutes = getDigit(*iterator++);
             formatIterator++;
 
             while (isMinute(*formatIterator)) {
@@ -48,7 +48,7 @@ Time Time::fromString(const std::string &format, const std::string &str) {
 
             continue;
         } else if (isSecond(*formatIterator)) {
-            seconds = *iterator++;
+            seconds = getDigit(*iterator++);
             formatIterator++;
 
             while (isSecond(*formatIterator)) {
@@ -63,12 +63,12 @@ Time Time::fromString(const std::string &format, const std::string &str) {
         }
     }
 
-    return Time(hours * 60*60 + minutes * 60 + seconds);
+    return Time(hours * 60 * 60 + minutes * 60 + seconds);
 }
 
 std::string Time::toString() const {
     char buff[10];
-    sprintf(buff, "%02d:%02d", _time / (60 * 60), _time % (60 * 60));
+    sprintf(buff, "%02d:%02d", _time / (60 * 60), _time % (60 * 60) / 60);
     return buff;
 }
 
