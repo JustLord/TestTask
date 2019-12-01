@@ -10,8 +10,7 @@
 
 class ScheduleReader {
 public:
-    ScheduleReader(const std::map<std::string, Company> &nameToCompanyMap);
-
+    explicit ScheduleReader(const std::map<std::string, Company> &nameToCompanyMap);
     std::optional<std::vector<Schedule>> Read(const std::string& fileName);
 
 private:

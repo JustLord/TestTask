@@ -2,9 +2,7 @@
 // Created by nikita on 11/30/19.
 //
 
-#ifndef TEST2_SCHEDULEWRITER_H
-#define TEST2_SCHEDULEWRITER_H
-
+#pragma once
 
 #include <vector>
 #include <fstream>
@@ -19,6 +17,3 @@ private:
 private:
     std::ofstream file;
 };
-
-
-#endif //TEST2_SCHEDULEWRITER_H

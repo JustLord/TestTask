@@ -2,24 +2,17 @@
 // Created by nikita on 11/30/19.
 //
 
-#ifndef TEST2_TIME_H
-#define TEST2_TIME_H
-
+#pragma once
 
 #include <string>
 
 class Time {
 public:
     explicit Time(int time = 0) : _time{time} {}
-
     static Time fromString(const std::string &format, const std::string &str);
-
     [[nodiscard]]std::string toString() const;
-
     Time &normalise();
-
-    Time normalised() const;
-
+    [[nodiscard]] Time normalised() const;
     Time &extend();
 
     friend bool operator!=(const Time &a, const Time &b);
@@ -31,9 +24,7 @@ public:
 
 private:
     static bool isHour(char format);
-
     static bool isMinute(char format);
-
     static bool isSecond(char format);
 
 private:
@@ -44,5 +35,3 @@ inline bool operator!=(const Time &a, const Time &b) { return a._time != b._time
 inline bool operator==(const Time &a, const Time &b) { return a._time == b._time; }
 inline bool operator<(const Time &a, const Time &b) { return a._time < b._time; }
 inline bool operator>(const Time &a, const Time &b) { return a._time > b._time; }
-
-#endif //TEST2_TIME_H
