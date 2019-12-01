@@ -9,4 +9,12 @@
 class ScheduleProcessor {
 public:
     std::vector<Schedule> process(std::vector<Schedule> schedules);
+
+private:
+    void sortResult(std::vector<Schedule> &schedules) const;
+
+private:
+    struct ResultCmp{
+        bool operator()(const Schedule& a, const Schedule& b);
+    };
 };
