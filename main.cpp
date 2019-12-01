@@ -79,7 +79,7 @@ int main() {
     auto processedSchedules = processor.process(std::move(schedules.value()));
 
     ScheduleWriter writer;
-    writer.write("./output.txt", processedSchedules);
+    writer.write("./output.txt", std::move(processedSchedules));
 
     return 0;
 }

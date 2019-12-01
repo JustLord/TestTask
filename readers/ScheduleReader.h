@@ -20,5 +20,3 @@ private:
     std::ifstream _fileStream;
     const std::map<std::string, Company>& _nameToCompanyMap;
 };
-
-
