@@ -21,6 +21,7 @@ public:
     friend bool operator>(const Time &a, const Time &b);
     bool operator<=(const Time &a) { return _time <= a._time; }
     bool operator>=(const Time &a) { return _time >= a._time; }
+    Time operator-(const Time &a) { return Time(_time - a._time); }
 
 private:
     static bool isHour(char format);
